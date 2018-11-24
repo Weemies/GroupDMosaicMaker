@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="GroupDMosaicMaker.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GroupDMosaicMaker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:GroupDMosaicMaker.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.DataContext>
+		<viewModel:MainPageViewModel/>
+	</Page.DataContext>
+	<StackPanel>
+		<CommandBar>
+			<AppBarToggleButton Icon="Upload" Label="Shuffle" Click="{x:Bind viewModel.loadImages}" />
+
+	</CommandBar>
+	<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
+		<SplitView.Pane>
+			<GridView SelectionMode="Multiple" ItemsSource="{Binding WorkingImages}">
+				<GridView.ItemTemplate>
+					<DataTemplate x:Name="ImageGalleryTemplate">
+						<Image Source="{Binding Uri}"/>
+					</DataTemplate>
+				</GridView.ItemTemplate>
+				<GridView.ItemsPanel>
+					<ItemsPanelTemplate>
+						<ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+					</ItemsPanelTemplate>
+				</GridView.ItemsPanel>
+			</GridView>
+
+		</SplitView.Pane>
+		<Grid/>
+	</SplitView>
+	</StackPanel>
+</Page>
