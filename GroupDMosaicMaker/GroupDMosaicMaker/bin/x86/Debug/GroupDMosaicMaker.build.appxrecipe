@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>6470ff6d-5743-4ae4-b07b-01692e5f8e92</PackageIdentityName>
     <PackageIdentityPublisher>CN=Corgi</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
       <PackagePath>entrypoint\GroupDMosaicMaker.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.identity.client\1.1.2-preview0008\lib\win81\Microsoft.Identity.Client.dll">
@@ -36,6 +36,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.toolkit.uwp\5.0.0\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\morelinq\3.0.0\lib\netstandard2.0\MoreLinq.dll">
+      <PackagePath>MoreLinq.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -532,53 +535,53 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.1.9\runtimes\win10-x86\lib\uap10.0.15138\netstandard.dll">
       <PackagePath>netstandard.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.xr.xml">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.xr.xml">
       <PackagePath>GroupDMosaicMaker.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
       <PackagePath>GroupDMosaicMaker.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

@@ -1,1 +1,1 @@
-C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker.csproj;x86
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker.csproj;x86

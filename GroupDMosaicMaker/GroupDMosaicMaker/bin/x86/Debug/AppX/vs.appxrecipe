@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>6470ff6d-5743-4ae4-b07b-01692e5f8e92</PackageIdentityName>
     <PackageIdentityPublisher>CN=Corgi</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>62E4D983950F6B1B71D6BD05CB40A998B8A5B6833C4442C3D63AFEF24C84263C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>6470ff6d-5743-4ae4-b07b-01692e5f8e92_1.0.0.0_x86__8pskhas7gscrc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>6470ff6d-5743-4ae4-b07b-01692e5f8e92_8pskhas7gscrc!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-25T03:35:05.187</Modified>
+      <Modified>2018-11-27T00:42:41.954</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
       <PackagePath>entrypoint\GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-25T03:34:45.979</Modified>
+      <Modified>2018-11-27T00:42:32.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.identity.client\1.1.2-preview0008\lib\win81\Microsoft.Identity.Client.dll">
       <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
@@ -50,6 +50,10 @@
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.toolkit.uwp\5.0.0\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
       <Modified>2018-10-31T07:08:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\morelinq\3.0.0\lib\netstandard2.0\MoreLinq.dll">
+      <PackagePath>MoreLinq.dll</PackagePath>
+      <Modified>2018-06-29T15:38:50.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -711,68 +715,68 @@
       <PackagePath>netstandard.dll</PackagePath>
       <Modified>2018-10-04T18:37:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-11-25T03:31:09.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2018-11-25T03:31:09.265</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.266</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.268</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.269</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.269</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.270</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-11-25T03:31:09.271</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.xr.xml">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.xr.xml">
       <PackagePath>GroupDMosaicMaker.xr.xml</PackagePath>
       <Modified>2018-11-25T03:31:15.002</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-25T03:34:45.346</Modified>
+      <Modified>2018-11-27T00:42:32.499</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2018-11-25T03:34:45.349</Modified>
+      <Modified>2018-11-27T00:42:32.500</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-04-20T02:01:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-25T03:35:03.482</Modified>
+      <Modified>2018-11-27T00:42:38.926</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
+    <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
       <PackagePath>GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-25T03:35:05.174</Modified>
+      <Modified>2018-11-27T00:42:41.915</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

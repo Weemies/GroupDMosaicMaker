@@ -596,3 +596,4 @@ C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMak
 C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
 C:\Users\JKitt\Source\Repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\MoreLinq.dll
