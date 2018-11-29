@@ -266,6 +266,19 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
         }
       },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        }
+      },
       "morelinq/3.0.0": {
         "type": "package",
         "compile": {
@@ -948,6 +961,29 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-arm": {
@@ -1214,6 +1250,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -2280,6 +2329,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-arm-aot": {
@@ -2546,6 +2607,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -3643,6 +3717,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-arm64-aot": {
@@ -3908,6 +3994,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -4800,6 +4899,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-x64": {
@@ -5066,6 +5174,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -6132,6 +6253,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-x64-aot": {
@@ -6398,6 +6531,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -7495,6 +7641,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-x86": {
@@ -7761,6 +7919,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -8827,6 +8998,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.16299/win10-x86-aot": {
@@ -9093,6 +9276,19 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "5.0.0",
+          "Win2D.uwp": "1.21.0"
+        },
+        "compile": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll": {}
         }
       },
       "morelinq/3.0.0": {
@@ -10190,6 +10386,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Win2D.uwp/1.21.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     }
   },
@@ -10680,6 +10888,20 @@
         "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.xml",
         "microsoft.toolkit.uwp.5.0.0.nupkg.sha512",
         "microsoft.toolkit.uwp.nuspec"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI/5.0.0": {
+      "sha512": "t96HlrRMur5ymKPRvX15INA1FzXT5XNpFabYKdS6XGhj4/v3KVIG1fWjFQ1MdBQwKt3BMd6bAgdXXXozuYIx+w==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui/5.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.dll",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.pdb",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.pri",
+        "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.UI.xml",
+        "microsoft.toolkit.uwp.ui.5.0.0.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.nuspec"
       ]
     },
     "morelinq/3.0.0": {
@@ -16790,6 +17012,25 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "Win2D.uwp/1.21.0": {
+      "sha512": "mDwummDtvwHwKYcUDD1E+KfouZKFvu1yuwQulG874h0mFHUjm6DGp/53KuBhBhJVnTN/NBED5b/OwBbgskl+OA==",
+      "type": "package",
+      "path": "win2d.uwp/1.21.0",
+      "files": [
+        ".signature.p7s",
+        "Win2d.githash.txt",
+        "build/native/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "win2d.uwp.1.21.0.nupkg.sha512",
+        "win2d.uwp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -16797,6 +17038,7 @@
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.1.9",
       "Microsoft.Toolkit >= 5.0.0",
       "Microsoft.Toolkit.Uwp >= 5.0.0",
+      "Microsoft.Toolkit.Uwp.UI >= 5.0.0",
       "morelinq >= 3.0.0"
     ]
   },
@@ -16846,6 +17088,10 @@
             "version": "[5.0.0, )"
           },
           "Microsoft.Toolkit.Uwp": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
+          "Microsoft.Toolkit.Uwp.UI": {
             "target": "Package",
             "version": "[5.0.0, )"
           },

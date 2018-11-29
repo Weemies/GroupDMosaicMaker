@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -14,17 +13,14 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using GroupDMosaicMaker.ViewModel;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace GroupDMosaicMaker
 {
-    
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         #region Data members
 
         private double dpiX;
@@ -56,7 +52,6 @@ namespace GroupDMosaicMaker
             this.height = 0;
             this.width = 0;
             this.gridSize = 0;
-
 
             this.InitializeComponent();
         }
@@ -101,40 +96,45 @@ namespace GroupDMosaicMaker
         {
             var sourceImageFile = await this.selectSourceImageFile();
             this.source = sourceImageFile;
-            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(sourceImageFile);
-            this.copyImage = copyBitmapImage;
-            this.SourceImage.Source = copyBitmapImage;
 
-            using (var fileStream = await sourceImageFile.OpenAsync(FileAccessMode.Read))
+            if (this.source != null)
             {
-                var decoder = await BitmapDecoder.CreateAsync(fileStream);
-                var transform = new BitmapTransform
+                var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(sourceImageFile);
+                this.copyImage = copyBitmapImage;
+                this.SourceImage.Source = copyBitmapImage;
+
+
+                using (var fileStream = await sourceImageFile.OpenAsync(FileAccessMode.Read))
                 {
-                    ScaledWidth = Convert.ToUInt32(copyBitmapImage.PixelWidth),
-                    ScaledHeight = Convert.ToUInt32(copyBitmapImage.PixelHeight)
-                };
+                    var decoder = await BitmapDecoder.CreateAsync(fileStream);
+                    var transform = new BitmapTransform
+                    {
+                        ScaledWidth = Convert.ToUInt32(copyBitmapImage.PixelWidth),
+                        ScaledHeight = Convert.ToUInt32(copyBitmapImage.PixelHeight)
+                    };
 
-                this.dpiX = decoder.DpiX;
-                this.dpiY = decoder.DpiY;
+                    this.dpiX = decoder.DpiX;
+                    this.dpiY = decoder.DpiY;
 
-                var pixelData = await decoder.GetPixelDataAsync(
-                    BitmapPixelFormat.Bgra8,
-                    BitmapAlphaMode.Straight,
-                    transform,
-                    ExifOrientationMode.IgnoreExifOrientation,
-                    ColorManagementMode.DoNotColorManage
-                );
+                    var pixelData = await decoder.GetPixelDataAsync(
+                        BitmapPixelFormat.Bgra8,
+                        BitmapAlphaMode.Straight,
+                        transform,
+                        ExifOrientationMode.IgnoreExifOrientation,
+                        ColorManagementMode.DoNotColorManage
+                    );
 
-                var sourcePixels = pixelData.DetachPixelData();
-                this.imageBytes = sourcePixels;
-                this.height = decoder.PixelHeight;
-                this.width = decoder.PixelWidth;
+                    var sourcePixels = pixelData.DetachPixelData();
+                    this.imageBytes = sourcePixels;
+                    this.height = decoder.PixelHeight;
+                    this.width = decoder.PixelWidth;
 
-                this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
-                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
-                {
-                    await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
-                    this.ModifiedImage.Source = this.modifiedImage;
+                    this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
+                    using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+                    {
+                        await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
+                        this.ModifiedImage.Source = this.modifiedImage;
+                    }
                 }
             }
         }
@@ -167,7 +167,6 @@ namespace GroupDMosaicMaker
                 this.height = decoder.PixelHeight;
                 this.width = decoder.PixelWidth;
 
-
                 //TODO fix unknown loop issue
                 //Surrond with loop to cover entire image.
                 for (int i = 0; i < this.height; i += this.gridSize)
@@ -176,13 +175,10 @@ namespace GroupDMosaicMaker
                     {
                         if (i + this.gridSize < height && j + this.gridSize < width)
                         {
-                            this.giveImageAverageColor(sourcePixels, i, j, (uint) (i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
                         }
                     }
                 }
-                
-
-
 
                 this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
                 using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
@@ -204,6 +200,7 @@ namespace GroupDMosaicMaker
                     pixels.Add(pixelColor);
                 }
             }
+
             var reds = pixels.Select(x => x.R).ToList();
             var averageR = reds.Average(x => x);
             var green = pixels.Select(x => x.G).ToList();
@@ -220,7 +217,6 @@ namespace GroupDMosaicMaker
                 }
             }
         }
-
         private void DrawGrid(byte[] sourcePixels, uint imageWidth, uint imageHeight, int gridSize)
         {
             for (var i = 0; i < imageHeight; i++)
@@ -230,7 +226,7 @@ namespace GroupDMosaicMaker
                     if (i % gridSize == 0 || j % gridSize == 0)
                     {
                         var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
-                        var gridColor =  Color.FromArgb(0, 255, pixelColor.G, pixelColor.B);
+                        var gridColor = Color.FromArgb(0, 255, pixelColor.G, pixelColor.B);
                         this.setPixelBgra8(sourcePixels, i, j, gridColor, imageWidth, imageHeight);
                     }
                 }
@@ -239,11 +235,12 @@ namespace GroupDMosaicMaker
 
         private async Task GridRefreshAsync(int grid)
         {
-            var gridBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
-            using (var fileStream = await source.OpenAsync(FileAccessMode.Read))
+            var gridBitmapImage = await this.MakeACopyOfTheFileToWorkOn(this.source);
+            using (var fileStream = await this.source.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await BitmapDecoder.CreateAsync(fileStream);
-                var transform = new BitmapTransform {
+                var transform = new BitmapTransform
+                {
                     ScaledWidth = Convert.ToUInt32(gridBitmapImage.PixelWidth),
                     ScaledHeight = Convert.ToUInt32(gridBitmapImage.PixelHeight)
                 };
@@ -313,12 +310,17 @@ namespace GroupDMosaicMaker
             pixels[offset + 0] = color.B;
         }
 
-        private void DrawGrid_Click(object sender, RoutedEventArgs e)
+        private async void DrawGrid_Click(object sender, RoutedEventArgs e)
         {
+            if (this.source == null)
+            {
+                return;
+            }
+
             int size;
             int.TryParse(this.GridBox.Text.ToString(), out size);
             this.gridSize = size;
-            this.GridRefreshAsync(size);
-            }
+            await this.GridRefreshAsync(size);
         }
     }
+}

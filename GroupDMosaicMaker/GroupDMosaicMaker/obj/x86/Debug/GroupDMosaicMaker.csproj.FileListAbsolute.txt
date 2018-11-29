@@ -598,3 +598,8 @@ C:\Users\Corgi\Source\Repos\corgigod\GroupDMosaicMaker\GroupDMosaicMaker\GroupDM
 C:\Users\Corgi\Source\Repos\corgigod\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Corgi\Source\Repos\corgigod\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
 C:\Users\Corgi\Source\Repos\corgigod\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.dll
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.pdb
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Microsoft.Graphics.Canvas.dll
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Microsoft.Graphics.Canvas.winmd
+C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.pri.xml

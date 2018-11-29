@@ -189,7 +189,7 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[11];
+            _typeNameTable = new string[24];
             _typeNameTable[0] = "GroupDMosaicMaker.ViewModel.MainPageViewModel";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "System.Collections.Generic.List`1<GroupDMosaicMaker.Model.MosaicImage>";
@@ -198,11 +198,24 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
             _typeNameTable[5] = "Windows.UI.Xaml.Media.Imaging.BitmapImage";
             _typeNameTable[6] = "System.Drawing.Color";
             _typeNameTable[7] = "System.ValueType";
-            _typeNameTable[8] = "GroupDMosaicMaker.MainPage";
-            _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[10] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[8] = "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex";
+            _typeNameTable[9] = "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType";
+            _typeNameTable[10] = "System.Enum";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.TextBox";
+            _typeNameTable[12] = "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode";
+            _typeNameTable[13] = "String";
+            _typeNameTable[14] = "Boolean";
+            _typeNameTable[15] = "GroupDMosaicMaker.MainPage";
+            _typeNameTable[16] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[17] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[18] = "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool";
+            _typeNameTable[19] = "Windows.UI.Xaml.Markup.MarkupExtension";
+            _typeNameTable[20] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter";
+            _typeNameTable[21] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[22] = "Double";
+            _typeNameTable[23] = "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter";
 
-            _typeTable = new global::System.Type[11];
+            _typeTable = new global::System.Type[24];
             _typeTable[0] = typeof(global::GroupDMosaicMaker.ViewModel.MainPageViewModel);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::System.Collections.Generic.List<global::GroupDMosaicMaker.Model.MosaicImage>);
@@ -211,9 +224,22 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Media.Imaging.BitmapImage);
             _typeTable[6] = typeof(global::System.Drawing.Color);
             _typeTable[7] = typeof(global::System.ValueType);
-            _typeTable[8] = typeof(global::GroupDMosaicMaker.MainPage);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[8] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex);
+            _typeTable[9] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType);
+            _typeTable[10] = typeof(global::System.Enum);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
+            _typeTable[12] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode);
+            _typeTable[13] = typeof(global::System.String);
+            _typeTable[14] = typeof(global::System.Boolean);
+            _typeTable[15] = typeof(global::GroupDMosaicMaker.MainPage);
+            _typeTable[16] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[18] = typeof(global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Markup.MarkupExtension);
+            _typeTable[20] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[22] = typeof(global::System.Double);
+            _typeTable[23] = typeof(global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -250,7 +276,11 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
 
         private object Activate_0_MainPageViewModel() { return new global::GroupDMosaicMaker.ViewModel.MainPageViewModel(); }
         private object Activate_2_List() { return new global::System.Collections.Generic.List<global::GroupDMosaicMaker.Model.MosaicImage>(); }
-        private object Activate_8_MainPage() { return new global::GroupDMosaicMaker.MainPage(); }
+        private object Activate_8_TextBoxRegex() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex(); }
+        private object Activate_15_MainPage() { return new global::GroupDMosaicMaker.MainPage(); }
+        private object Activate_18_NullableBool() { return new global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool(); }
+        private object Activate_20_DoubleToObjectConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter(); }
+        private object Activate_23_DoubleToVisibilityConverter() { return new global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter(); }
         private void VectorAdd_2_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::GroupDMosaicMaker.Model.MosaicImage>)instance;
@@ -319,19 +349,106 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 8:   //  GroupDMosaicMaker.MainPage
+            case 8:   //  Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_TextBoxRegex;
+                userType.AddMemberName("ValidationType");
+                userType.AddMemberName("ValidationMode");
+                userType.AddMemberName("Regex");
+                userType.AddMemberName("IsValid");
+                xamlType = userType;
+                break;
+
+            case 9:   //  Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Custom", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.Custom);
+                userType.AddEnumValue("Email", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.Email);
+                userType.AddEnumValue("Number", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.Number);
+                userType.AddEnumValue("Decimal", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.Decimal);
+                userType.AddEnumValue("Characters", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.Characters);
+                userType.AddEnumValue("PhoneNumber", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType.PhoneNumber);
+                xamlType = userType;
+                break;
+
+            case 10:   //  System.Enum
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 11:   //  Windows.UI.Xaml.Controls.TextBox
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Normal", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode.Normal);
+                userType.AddEnumValue("Forced", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode.Forced);
+                userType.AddEnumValue("Dynamic", global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode.Dynamic);
+                xamlType = userType;
+                break;
+
+            case 13:   //  String
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Boolean
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  GroupDMosaicMaker.MainPage
                 userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_MainPage;
+                userType.Activator = Activate_15_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Windows.UI.Xaml.Controls.Page
+            case 16:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  Windows.UI.Xaml.Controls.UserControl
+            case 17:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 18:   //  Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Markup.MarkupExtension"));
+                userType.Activator = Activate_18_NullableBool;
+                userType.AddMemberName("Value");
+                userType.AddMemberName("IsNull");
+                userType.SetIsBindable();
+                userType.SetIsMarkupExtension();
+                xamlType = userType;
+                break;
+
+            case 19:   //  Windows.UI.Xaml.Markup.MarkupExtension
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_20_DoubleToObjectConverter;
+                userType.AddMemberName("TrueValue");
+                userType.AddMemberName("FalseValue");
+                userType.AddMemberName("NullValue");
+                userType.AddMemberName("GreaterThan");
+                userType.AddMemberName("LessThan");
+                userType.SetIsBindable();
+                xamlType = userType;
+                break;
+
+            case 21:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 22:   //  Double
+                xamlType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 23:   //  Microsoft.Toolkit.Uwp.UI.Converters.DoubleToVisibilityConverter
+                userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter"));
+                userType.Activator = Activate_23_DoubleToVisibilityConverter;
+                userType.SetIsBindable();
+                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -398,6 +515,108 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
             var that = (global::GroupDMosaicMaker.ViewModel.MainPageViewModel)instance;
             that.editedImage = (global::System.Uri)Value;
         }
+        private object get_6_TextBoxRegex_ValidationType(object instance)
+        {
+            return global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.GetValidationType((global::Windows.UI.Xaml.Controls.TextBox)instance);
+        }
+        private void set_6_TextBoxRegex_ValidationType(object instance, object Value)
+        {
+            global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.SetValidationType((global::Windows.UI.Xaml.Controls.TextBox)instance, (global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType)Value);
+        }
+        private object get_7_TextBoxRegex_ValidationMode(object instance)
+        {
+            return global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.GetValidationMode((global::Windows.UI.Xaml.Controls.TextBox)instance);
+        }
+        private void set_7_TextBoxRegex_ValidationMode(object instance, object Value)
+        {
+            global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.SetValidationMode((global::Windows.UI.Xaml.Controls.TextBox)instance, (global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode)Value);
+        }
+        private object get_8_TextBoxRegex_Regex(object instance)
+        {
+            return global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.GetRegex((global::Windows.UI.Xaml.Controls.TextBox)instance);
+        }
+        private void set_8_TextBoxRegex_Regex(object instance, object Value)
+        {
+            global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.SetRegex((global::Windows.UI.Xaml.Controls.TextBox)instance, (global::System.String)Value);
+        }
+        private object get_9_TextBoxRegex_IsValid(object instance)
+        {
+            return global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.GetIsValid((global::Windows.UI.Xaml.Controls.TextBox)instance);
+        }
+        private void set_9_TextBoxRegex_IsValid(object instance, object Value)
+        {
+            global::Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.SetIsValid((global::Windows.UI.Xaml.Controls.TextBox)instance, (global::System.Boolean)Value);
+        }
+        private object get_10_NullableBool_Value(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
+            return that.Value;
+        }
+        private void set_10_NullableBool_Value(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
+            that.Value = (global::System.Boolean)Value;
+        }
+        private object get_11_NullableBool_IsNull(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
+            return that.IsNull;
+        }
+        private void set_11_NullableBool_IsNull(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool)instance;
+            that.IsNull = (global::System.Boolean)Value;
+        }
+        private object get_12_DoubleToObjectConverter_TrueValue(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            return that.TrueValue;
+        }
+        private void set_12_DoubleToObjectConverter_TrueValue(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            that.TrueValue = (global::System.Object)Value;
+        }
+        private object get_13_DoubleToObjectConverter_FalseValue(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            return that.FalseValue;
+        }
+        private void set_13_DoubleToObjectConverter_FalseValue(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            that.FalseValue = (global::System.Object)Value;
+        }
+        private object get_14_DoubleToObjectConverter_NullValue(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            return that.NullValue;
+        }
+        private void set_14_DoubleToObjectConverter_NullValue(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            that.NullValue = (global::System.Object)Value;
+        }
+        private object get_15_DoubleToObjectConverter_GreaterThan(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            return that.GreaterThan;
+        }
+        private void set_15_DoubleToObjectConverter_GreaterThan(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            that.GreaterThan = (global::System.Double)Value;
+        }
+        private object get_16_DoubleToObjectConverter_LessThan(object instance)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            return that.LessThan;
+        }
+        private void set_16_DoubleToObjectConverter_LessThan(object instance, object Value)
+        {
+            var that = (global::Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter)instance;
+            that.LessThan = (global::System.Double)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -441,6 +660,85 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
                 xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "editedImage", "System.Uri");
                 xamlMember.Getter = get_5_MainPageViewModel_editedImage;
                 xamlMember.Setter = set_5_MainPageViewModel_editedImage;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "ValidationType", "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationType");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_6_TextBoxRegex_ValidationType;
+                xamlMember.Setter = set_6_TextBoxRegex_ValidationType;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.ValidationMode");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_7_TextBoxRegex_ValidationMode;
+                xamlMember.Setter = set_7_TextBoxRegex_ValidationMode;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.Regex":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "Regex", "String");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_8_TextBoxRegex_Regex;
+                xamlMember.Setter = set_8_TextBoxRegex_Regex;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex.IsValid":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "IsValid", "Boolean");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_9_TextBoxRegex_IsValid;
+                xamlMember.Setter = set_9_TextBoxRegex_IsValid;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool.Value":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "Value", "Boolean");
+                xamlMember.Getter = get_10_NullableBool_Value;
+                xamlMember.Setter = set_10_NullableBool_Value;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool.IsNull":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Extensions.NullableBool");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "IsNull", "Boolean");
+                xamlMember.Getter = get_11_NullableBool_IsNull;
+                xamlMember.Setter = set_11_NullableBool_IsNull;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.TrueValue":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "TrueValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_DoubleToObjectConverter_TrueValue;
+                xamlMember.Setter = set_12_DoubleToObjectConverter_TrueValue;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.FalseValue":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "FalseValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_13_DoubleToObjectConverter_FalseValue;
+                xamlMember.Setter = set_13_DoubleToObjectConverter_FalseValue;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.NullValue":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "NullValue", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_DoubleToObjectConverter_NullValue;
+                xamlMember.Setter = set_14_DoubleToObjectConverter_NullValue;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.GreaterThan":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "GreaterThan", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_15_DoubleToObjectConverter_GreaterThan;
+                xamlMember.Setter = set_15_DoubleToObjectConverter_GreaterThan;
+                break;
+            case "Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter.LessThan":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Converters.DoubleToObjectConverter");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "LessThan", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_16_DoubleToObjectConverter_LessThan;
+                xamlMember.Setter = set_16_DoubleToObjectConverter_LessThan;
                 break;
             }
             return xamlMember;

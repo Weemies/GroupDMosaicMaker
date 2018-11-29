@@ -6,7 +6,7 @@ using MoreLinq;
 
 namespace GroupDMosaicMaker.Model
 {
-    class ImagePalette
+    public class ImagePalette
     {
 
         #region Data Members
@@ -33,12 +33,12 @@ namespace GroupDMosaicMaker.Model
         }
 
 
-         private static int colorDiff(Color c1, Color c2)
-         {
-             return (int)Math.Sqrt((c1.R - c2.R) * (c1.R - c2.R)
-                                   + (c1.G - c2.G) * (c1.G - c2.G)
-                                   + (c1.B - c2.B) * (c1.B - c2.B));
-         }
+        private static int colorDiff(Color c1, Color c2)
+        {
+            return (int)Math.Sqrt((c1.R - c2.R) * (c1.R - c2.R)
+                                  + (c1.G - c2.G) * (c1.G - c2.G)
+                                  + (c1.B - c2.B) * (c1.B - c2.B));
+        }
 
         #endregion
 

@@ -8,6 +8,8 @@
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="DataContext" />
       <RootProperty Name="Content" />
     </RootType>
@@ -67,6 +69,12 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Extensions.TextBoxRegex">
+      <RootMethod Name="GetValidationType" />
+      <RootMethod Name="SetValidationType" />
+      <RootMethod Name="GetValidationMode" />
+      <RootMethod Name="SetValidationMode" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
