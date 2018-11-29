@@ -13,10 +13,10 @@
 	</Page.DataContext>
 	<StackPanel>
 		<CommandBar>
-			<AppBarToggleButton x:ConnectionId='3' Icon="Upload" Label="Shuffle"                                       />
+			<AppBarToggleButton x:ConnectionId='3' Icon="Upload" Label="Shuffle"                                      />
 
 	</CommandBar>
-	<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
+	<!--<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
 		<SplitView.Pane>
 			<GridView SelectionMode="Multiple" ItemsSource="{Binding WorkingImages}">
 				<GridView.ItemTemplate>
@@ -33,7 +33,19 @@
 
 		</SplitView.Pane>
 		<Grid/>
-	</SplitView>
-	</StackPanel>
+	</SplitView>-->
+		
+<StackPanel Orientation="Horizontal" >
+
+	<Image>
+		<Image.Source>
+			<BitmapImage x:ConnectionId='2'                                                             />
+		</Image.Source>
+	</Image>
+
+
+			<Image />
+		</StackPanel>
+		</StackPanel>
 </Page>
 

@@ -13,10 +13,10 @@
 	</Page.DataContext>
 	<StackPanel>
 		<CommandBar>
-			<AppBarToggleButton Icon="Upload" Label="Shuffle" Click="{x:Bind viewModel.loadImages}" />
+			<AppBarToggleButton Icon="Upload" Label="Shuffle" Click="{x:Bind viewModel.loadImage}" />
 
 	</CommandBar>
-	<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
+	<!--<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
 		<SplitView.Pane>
 			<GridView SelectionMode="Multiple" ItemsSource="{Binding WorkingImages}">
 				<GridView.ItemTemplate>
@@ -33,6 +33,18 @@
 
 		</SplitView.Pane>
 		<Grid/>
-	</SplitView>
-	</StackPanel>
+	</SplitView>-->
+		
+<StackPanel Orientation="Horizontal" >
+
+	<Image>
+		<Image.Source>
+			<BitmapImage UriSource="{x:Bind viewModel.selectedImage, Mode = TwoWay}" />
+		</Image.Source>
+	</Image>
+
+
+			<Image />
+		</StackPanel>
+		</StackPanel>
 </Page>

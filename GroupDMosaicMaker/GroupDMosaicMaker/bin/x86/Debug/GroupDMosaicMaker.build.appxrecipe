@@ -37,6 +37,9 @@
     <AppxPackagedFile Include="C:\Users\Corgi\.nuget\packages\microsoft.toolkit.uwp\5.0.0\lib\uap10.0.16299\Microsoft.Toolkit.Uwp.dll">
       <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Corgi\.nuget\packages\morelinq\3.0.0\lib\netstandard2.0\MoreLinq.dll">
+      <PackagePath>MoreLinq.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Corgi\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>

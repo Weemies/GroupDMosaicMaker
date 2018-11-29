@@ -15,7 +15,8 @@ namespace GroupDMosaicMaker.ViewModel
     {
         #region DataMembers
         private List<MosaicImage> _workingImages;
-
+        private Uri _selectedImage;
+        private Uri _editedImage;
 
         #endregion
 
@@ -33,19 +34,41 @@ namespace GroupDMosaicMaker.ViewModel
             }
         }
 
+        public Uri selectedImage
+        {
+            get => _selectedImage;
+            set
+            {
+                if (Equals(value, _selectedImage)) return;
+                _selectedImage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Uri editedImage
+        {
+            get => _editedImage;
+            set
+            {
+                if (Equals(value, _editedImage)) return;
+                _editedImage = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 
         #region Constructor
-       public MainPageViewModel() { }
+        public MainPageViewModel() { }
 
 
         #endregion
 
-        public async void loadImages()
+        public async void loadImage()
         {
-            var folder = await Task.Run(() => ImageDirectoryChooserGenerator.ChooseImageFolderDialog().Result);
-            this.WorkingImages = await Task.Run(() => ImageParser.ParseDirectoryToImageList(folder).Result);
+            var file = await ImageDirectoryChooserGenerator.ChooseImageFileDialog();
+            this.selectedImage = new Uri(file.Path);
+
         }
 
         #region INotifyPropertyChangedImplementation

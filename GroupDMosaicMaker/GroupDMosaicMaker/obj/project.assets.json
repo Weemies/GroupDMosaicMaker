@@ -266,6 +266,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
         }
       },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -1205,6 +1214,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -2528,6 +2546,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -3883,6 +3910,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
         }
       },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -5030,6 +5066,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -6353,6 +6398,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -7709,6 +7763,15 @@
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
         }
       },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -9030,6 +9093,15 @@
         },
         "runtime": {
           "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.dll": {}
+        }
+      },
+      "morelinq/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MoreLinq.dll": {}
         }
       },
       "NETStandard.Library/2.0.3": {
@@ -10608,6 +10680,22 @@
         "lib/uap10.0.16299/Microsoft.Toolkit.Uwp.xml",
         "microsoft.toolkit.uwp.5.0.0.nupkg.sha512",
         "microsoft.toolkit.uwp.nuspec"
+      ]
+    },
+    "morelinq/3.0.0": {
+      "sha512": "LE3nlocxj3bOBt0p3c7Rdf8hSSpJZ0eY24OVdkvGCbHF0fCUCATfXAyOI/1fRZarPTQvzQGEeSSoNZKig5PStA==",
+      "type": "package",
+      "path": "morelinq/3.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net451/MoreLinq.dll",
+        "lib/net451/MoreLinq.xml",
+        "lib/netstandard1.0/MoreLinq.dll",
+        "lib/netstandard1.0/MoreLinq.xml",
+        "lib/netstandard2.0/MoreLinq.dll",
+        "lib/netstandard2.0/MoreLinq.xml",
+        "morelinq.3.0.0.nupkg.sha512",
+        "morelinq.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -16709,7 +16797,8 @@
     "UAP,Version=v10.0.16299": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.1.9",
       "Microsoft.Toolkit >= 5.0.0",
-      "Microsoft.Toolkit.Uwp >= 5.0.0"
+      "Microsoft.Toolkit.Uwp >= 5.0.0",
+      "morelinq >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -16760,6 +16849,10 @@
           "Microsoft.Toolkit.Uwp": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "morelinq": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [
