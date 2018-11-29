@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using GroupDMosaicMaker.Annotations;
 using GroupDMosaicMaker.Model;
 using GroupDMosaicMaker.View;
 
 namespace GroupDMosaicMaker.ViewModel
 {
-   public class MainPageViewModel : INotifyPropertyChanged 
+    public class MainPageViewModel : INotifyPropertyChanged
     {
         #region DataMembers
         private List<MosaicImage> _workingImages;
@@ -22,7 +19,7 @@ namespace GroupDMosaicMaker.ViewModel
 
         #region Properties
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         public List<MosaicImage> WorkingImages
         {
             get => _workingImages;
@@ -73,13 +70,10 @@ namespace GroupDMosaicMaker.ViewModel
 
         #region INotifyPropertyChangedImplementation
 
-
-
-
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

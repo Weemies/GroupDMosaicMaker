@@ -39,8 +39,8 @@ namespace GroupDMosaicMaker.Model
                 var decoder = await BitmapDecoder.CreateAsync(fileStream);
                 var transform = new BitmapTransform
                 {
-                    ScaledWidth = Convert.ToUInt32(Image.PixelWidth),
-                    ScaledHeight = Convert.ToUInt32(Image.PixelHeight)
+                    ScaledWidth = Convert.ToUInt32(this.Image.PixelWidth),
+                    ScaledHeight = Convert.ToUInt32(this.Image.PixelHeight)
                 };
 
                 this.dpiX = decoder.DpiX;
