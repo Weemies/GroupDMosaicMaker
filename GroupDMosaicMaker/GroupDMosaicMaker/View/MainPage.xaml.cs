@@ -166,9 +166,7 @@ namespace GroupDMosaicMaker
                 this.imageBytes = sourcePixels;
                 this.height = decoder.PixelHeight;
                 this.width = decoder.PixelWidth;
-
-                //TODO fix unknown loop issue
-                //Surrond with loop to cover entire image.
+.
                 for (int i = 0; i < this.height; i += this.gridSize)
                 {
                     for (int j = 0; j < this.width; j += this.gridSize)
@@ -177,6 +175,24 @@ namespace GroupDMosaicMaker
                         {
                             this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
                         }
+                        else if (i + this.gridSize >= height && j + this.gridSize >= width)
+                        {
+                            var hremainder = decoder.PixelHeight - i;
+                            var wremainder = decoder.PixelWidth - j;
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder-1), (uint)(j + wremainder-1), decoder.PixelWidth, decoder.PixelHeight);
+                        }
+
+                        else if (i + this.gridSize >= height)
+                        {
+                            var hremainder = decoder.PixelHeight - i;
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
+                        }
+                        else if (j + this.gridSize >= width)
+                        {
+                            var wremainder = decoder.PixelWidth - j;
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + wremainder - 1), decoder.PixelWidth, decoder.PixelHeight);
+                        }
+
                     }
                 }
 

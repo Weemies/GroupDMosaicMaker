@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-29T16:32:42.284</Modified>
+      <Modified>2018-11-29T16:49:13.011</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
       <PackagePath>entrypoint\GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-29T16:32:29.266</Modified>
+      <Modified>2018-11-29T16:49:12.293</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.identity.client\1.1.2-preview0008\lib\win81\Microsoft.Identity.Client.dll">
       <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
@@ -771,11 +771,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-29T16:32:28.849</Modified>
+      <Modified>2018-11-29T16:49:11.962</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2018-11-29T16:32:28.849</Modified>
+      <Modified>2018-11-29T16:49:11.963</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -784,11 +784,11 @@
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-29T16:32:36.036</Modified>
+      <Modified>2018-11-29T16:46:48.934</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
       <PackagePath>GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-29T16:32:42.284</Modified>
+      <Modified>2018-11-29T16:49:13.005</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
