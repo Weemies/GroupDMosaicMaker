@@ -272,6 +272,8 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
                 userType = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_0_MainPageViewModel;
                 userType.AddMemberName("WorkingImages");
+                userType.AddMemberName("selectedImage");
+                userType.AddMemberName("editedImage");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -376,6 +378,26 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
             var that = (global::GroupDMosaicMaker.Model.MosaicImage)instance;
             that.AverageColor = (global::System.Drawing.Color)Value;
         }
+        private object get_4_MainPageViewModel_selectedImage(object instance)
+        {
+            var that = (global::GroupDMosaicMaker.ViewModel.MainPageViewModel)instance;
+            return that.selectedImage;
+        }
+        private void set_4_MainPageViewModel_selectedImage(object instance, object Value)
+        {
+            var that = (global::GroupDMosaicMaker.ViewModel.MainPageViewModel)instance;
+            that.selectedImage = (global::System.Uri)Value;
+        }
+        private object get_5_MainPageViewModel_editedImage(object instance)
+        {
+            var that = (global::GroupDMosaicMaker.ViewModel.MainPageViewModel)instance;
+            return that.editedImage;
+        }
+        private void set_5_MainPageViewModel_editedImage(object instance, object Value)
+        {
+            var that = (global::GroupDMosaicMaker.ViewModel.MainPageViewModel)instance;
+            that.editedImage = (global::System.Uri)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -407,6 +429,18 @@ namespace GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo
                 xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "AverageColor", "System.Drawing.Color");
                 xamlMember.Getter = get_3_MosaicImage_AverageColor;
                 xamlMember.Setter = set_3_MosaicImage_AverageColor;
+                break;
+            case "GroupDMosaicMaker.ViewModel.MainPageViewModel.selectedImage":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("GroupDMosaicMaker.ViewModel.MainPageViewModel");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "selectedImage", "System.Uri");
+                xamlMember.Getter = get_4_MainPageViewModel_selectedImage;
+                xamlMember.Setter = set_4_MainPageViewModel_selectedImage;
+                break;
+            case "GroupDMosaicMaker.ViewModel.MainPageViewModel.editedImage":
+                userType = (global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlUserType)GetXamlTypeByName("GroupDMosaicMaker.ViewModel.MainPageViewModel");
+                xamlMember = new global::GroupDMosaicMaker.GroupDMosaicMaker_XamlTypeInfo.XamlMember(this, "editedImage", "System.Uri");
+                xamlMember.Getter = get_5_MainPageViewModel_editedImage;
+                xamlMember.Setter = set_5_MainPageViewModel_editedImage;
                 break;
             }
             return xamlMember;

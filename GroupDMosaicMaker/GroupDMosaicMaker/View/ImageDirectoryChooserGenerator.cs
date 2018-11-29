@@ -18,7 +18,7 @@ namespace GroupDMosaicMaker.View
         {
             var directoryPicker = new FolderPicker();
             directoryPicker.FileTypeFilter.Add(".png");
-            directoryPicker.FileTypeFilter.Add(".jpeg");
+            directoryPicker.FileTypeFilter.Add(".jpg");
             directoryPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
 
             var directoryResult = await directoryPicker.PickSingleFolderAsync();
@@ -38,7 +38,7 @@ namespace GroupDMosaicMaker.View
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             openPicker.FileTypeFilter.Add(".gif");
-            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".png");
             StorageFile file = await openPicker.PickSingleFileAsync();
             return file;
@@ -52,7 +52,7 @@ namespace GroupDMosaicMaker.View
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
 
-            savePicker.FileTypeChoices.Add("jpeg", new List<string>() { ".jpeg" });
+            savePicker.FileTypeChoices.Add("jpg", new List<string>() { ".jpg" });
             savePicker.FileTypeChoices.Add("gif", new List<string>() { ".gif" });
             savePicker.FileTypeChoices.Add("png", new List<string>() { ".png" });
             savePicker.SuggestedFileName = "New Document";

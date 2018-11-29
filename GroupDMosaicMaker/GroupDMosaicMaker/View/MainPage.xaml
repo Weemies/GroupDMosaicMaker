@@ -8,43 +8,49 @@
     xmlns:viewModel="using:GroupDMosaicMaker.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-	<Page.DataContext>
-		<viewModel:MainPageViewModel/>
-	</Page.DataContext>
-	<StackPanel>
-		<CommandBar>
-			<AppBarToggleButton Icon="Upload" Label="Shuffle" Click="{x:Bind viewModel.loadImage}" />
+    <Page.DataContext>
+        <viewModel:MainPageViewModel/>
+    </Page.DataContext>
+    <StackPanel>
+        <CommandBar>
+            <AppBarToggleButton Icon="Upload" Label="" Click="loadButton_Click" RenderTransformOrigin="0.57,0.818" />
+            <AppBarButton Icon="Save" Label="Save File" Click="SaveFile_Click"/>
 
-	</CommandBar>
-	<!--<SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
-		<SplitView.Pane>
-			<GridView SelectionMode="Multiple" ItemsSource="{Binding WorkingImages}">
-				<GridView.ItemTemplate>
-					<DataTemplate x:Name="ImageGalleryTemplate">
-						<Image Source="{Binding Uri}"/>
-					</DataTemplate>
-				</GridView.ItemTemplate>
-				<GridView.ItemsPanel>
-					<ItemsPanelTemplate>
-						<ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
-					</ItemsPanelTemplate>
-				</GridView.ItemsPanel>
-			</GridView>
+        </CommandBar>
+        <SplitView HorizontalAlignment="Center" Height="768" VerticalAlignment="Center" Width="1366">
+            <SplitView.Pane>
+                <GridView SelectionMode="Multiple" ItemsSource="{Binding WorkingImages}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:Name="ImageGalleryTemplate">
+                            <Image Source="{Binding Uri}"/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
 
-		</SplitView.Pane>
-		<Grid/>
-	</SplitView>-->
-		
-<StackPanel Orientation="Horizontal" >
+            </SplitView.Pane>
+            <Grid>
+                <Image x:Name="SourceImage" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="540" Margin="70,42,0,0"/>
+                <Image x:Name="ModifiedImage" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="540" Margin="683,42,0,0"/>
+                <TextBox x:Name="GridBox" HorizontalAlignment="Left" Margin="787,490,0,0" Text="Grid Size" VerticalAlignment="Top"/>
+                <Button x:Name="EnterButton" Content="Button" HorizontalAlignment="Left" Margin="888,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,0.492" Click="DrawGrid_Click"/>
+            </Grid>
+        </SplitView>
 
-	<Image>
-		<Image.Source>
-			<BitmapImage UriSource="{x:Bind viewModel.selectedImage, Mode = TwoWay}" />
-		</Image.Source>
-	</Image>
+        <StackPanel Orientation="Horizontal" >
+
+            <Image>
+                <Image.Source>
+                    <BitmapImage UriSource="{x:Bind viewModel.selectedImage, Mode = TwoWay}" />
+                </Image.Source>
+            </Image>
 
 
-			<Image />
-		</StackPanel>
-		</StackPanel>
+            <Image />
+        </StackPanel>
+    </StackPanel>
 </Page>
