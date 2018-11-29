@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-29T16:49:13.011</Modified>
+      <Modified>2018-11-29T16:52:00.241</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\GroupDMosaicMaker.exe">
       <PackagePath>entrypoint\GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-29T16:49:12.293</Modified>
+      <Modified>2018-11-29T16:51:59.410</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\.nuget\packages\microsoft.identity.client\1.1.2-preview0008\lib\win81\Microsoft.Identity.Client.dll">
       <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
@@ -771,11 +771,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-29T16:49:11.962</Modified>
+      <Modified>2018-11-29T16:51:59.126</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2018-11-29T16:49:11.963</Modified>
+      <Modified>2018-11-29T16:51:59.127</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -788,7 +788,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\JKitt\source\repos\GroupDMosaicMaker2\GroupDMosaicMaker\GroupDMosaicMaker\bin\x86\Debug\Core\GroupDMosaicMaker.exe">
       <PackagePath>GroupDMosaicMaker.exe</PackagePath>
-      <Modified>2018-11-29T16:49:13.005</Modified>
+      <Modified>2018-11-29T16:52:00.235</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

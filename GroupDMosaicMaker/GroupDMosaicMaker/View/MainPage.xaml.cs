@@ -166,7 +166,7 @@ namespace GroupDMosaicMaker
                 this.imageBytes = sourcePixels;
                 this.height = decoder.PixelHeight;
                 this.width = decoder.PixelWidth;
-.
+
                 for (int i = 0; i < this.height; i += this.gridSize)
                 {
                     for (int j = 0; j < this.width; j += this.gridSize)
