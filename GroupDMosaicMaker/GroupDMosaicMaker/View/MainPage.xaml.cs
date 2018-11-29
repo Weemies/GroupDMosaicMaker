@@ -176,7 +176,7 @@ namespace GroupDMosaicMaker
                     {
                         if (i + this.gridSize < height && j + this.gridSize < width)
                         {
-                            this.giveImageAverageColor(sourcePixels, i, j, (uint) (i + this.gridSize), (uint)(j + this.gridSize));
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint) (i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
                         }
                     }
                 }
@@ -193,14 +193,14 @@ namespace GroupDMosaicMaker
             }
         }
 
-        private void giveImageAverageColor(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth)
+        private void giveImageAverageColor(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth, uint fullWidth, uint fullHeight)
         {
             List<Color> pixels = new List<Color>();
             for (var i = xstart; i < imageHeight; i++)
             {
                 for (var j = ystart; j < imageWidth; j++)
                 {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, imageWidth, imageHeight);
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, fullWidth, fullHeight);
                     pixels.Add(pixelColor);
                 }
             }
@@ -216,7 +216,7 @@ namespace GroupDMosaicMaker
             {
                 for (var j = ystart; j < imageWidth; j++)
                 {
-                    this.setPixelBgra8(sourcePixels, i, j, aveColor, imageWidth, imageHeight);
+                    this.setPixelBgra8(sourcePixels, i, j, aveColor, fullWidth, fullHeight);
                 }
             }
         }
