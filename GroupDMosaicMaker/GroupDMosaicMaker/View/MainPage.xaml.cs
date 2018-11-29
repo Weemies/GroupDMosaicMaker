@@ -36,6 +36,10 @@ namespace GroupDMosaicMaker
         public uint height;
         public uint width;
         public int gridSize;
+
+        public BitmapImage copyImage;
+
+        public StorageFile source;
         #endregion
 
         #region Constructors
@@ -52,6 +56,8 @@ namespace GroupDMosaicMaker
             this.height = 0;
             this.width = 0;
             this.gridSize = 0;
+
+
             this.InitializeComponent();
         }
 
@@ -94,7 +100,9 @@ namespace GroupDMosaicMaker
         private async void loadButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             var sourceImageFile = await this.selectSourceImageFile();
+            this.source = sourceImageFile;
             var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(sourceImageFile);
+            this.copyImage = copyBitmapImage;
             this.SourceImage.Source = copyBitmapImage;
 
             using (var fileStream = await sourceImageFile.OpenAsync(FileAccessMode.Read))
@@ -122,11 +130,57 @@ namespace GroupDMosaicMaker
                 this.height = decoder.PixelHeight;
                 this.width = decoder.PixelWidth;
 
+                this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
+                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+                {
+                    await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
+                    this.ModifiedImage.Source = this.modifiedImage;
+                }
+            }
+        }
+
+        private async void MosaicRefresh()
+        {
+            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
+            using (var fileStream = await this.source.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await BitmapDecoder.CreateAsync(fileStream);
+                var transform = new BitmapTransform
+                {
+                    ScaledWidth = Convert.ToUInt32(copyBitmapImage.PixelWidth),
+                    ScaledHeight = Convert.ToUInt32(copyBitmapImage.PixelHeight)
+                };
+
+                this.dpiX = decoder.DpiX;
+                this.dpiY = decoder.DpiY;
+
+                var pixelData = await decoder.GetPixelDataAsync(
+                    BitmapPixelFormat.Bgra8,
+                    BitmapAlphaMode.Straight,
+                    transform,
+                    ExifOrientationMode.IgnoreExifOrientation,
+                    ColorManagementMode.DoNotColorManage
+                );
+
+                var sourcePixels = pixelData.DetachPixelData();
+                this.imageBytes = sourcePixels;
+                this.height = decoder.PixelHeight;
+                this.width = decoder.PixelWidth;
+
 
                 //TODO fix unknown loop issue
                 //Surrond with loop to cover entire image.
-
-                this.giveImageAverageColor(sourcePixels, 0, 0, 50, 50);
+                for (int i = 0; i < this.height; i += this.gridSize)
+                {
+                    for (int j = 0; j < this.width; j += this.gridSize)
+                    {
+                        if (i + this.gridSize < height && j + this.gridSize < width)
+                        {
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint) (i + this.gridSize), (uint)(j + this.gridSize));
+                        }
+                    }
+                }
+                
 
 
 
@@ -138,6 +192,7 @@ namespace GroupDMosaicMaker
                 }
             }
         }
+
         private void giveImageAverageColor(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth)
         {
             List<Color> pixels = new List<Color>();
@@ -179,6 +234,41 @@ namespace GroupDMosaicMaker
                         this.setPixelBgra8(sourcePixels, i, j, gridColor, imageWidth, imageHeight);
                     }
                 }
+            }
+        }
+
+        private async Task GridRefreshAsync(int grid)
+        {
+            var gridBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
+            using (var fileStream = await source.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await BitmapDecoder.CreateAsync(fileStream);
+                var transform = new BitmapTransform {
+                    ScaledWidth = Convert.ToUInt32(gridBitmapImage.PixelWidth),
+                    ScaledHeight = Convert.ToUInt32(gridBitmapImage.PixelHeight)
+                };
+
+                this.dpiX = decoder.DpiX;
+                this.dpiY = decoder.DpiY;
+
+                var pixelData = await decoder.GetPixelDataAsync(
+                    BitmapPixelFormat.Bgra8,
+                    BitmapAlphaMode.Straight,
+                    transform,
+                    ExifOrientationMode.IgnoreExifOrientation,
+                    ColorManagementMode.DoNotColorManage
+                );
+
+                var sourcePixels = pixelData.DetachPixelData();
+                this.DrawGrid(sourcePixels, decoder.PixelWidth, decoder.PixelHeight, grid);
+                this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
+                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+                {
+                    await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
+                    this.SourceImage.Source = this.modifiedImage;
+                }
+
+                this.MosaicRefresh();
             }
         }
 
@@ -228,7 +318,7 @@ namespace GroupDMosaicMaker
             int size;
             int.TryParse(this.GridBox.Text.ToString(), out size);
             this.gridSize = size;
-            this.DrawGrid(this.imageBytes, this.width, this.height, size);
+            this.GridRefreshAsync(size);
             }
         }
     }

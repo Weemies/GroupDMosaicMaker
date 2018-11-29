@@ -37,7 +37,7 @@
                 <Image x:Name="SourceImage" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="540" Margin="70,42,0,0"/>
                 <Image x:Name="ModifiedImage" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="540" Margin="683,42,0,0"/>
                 <TextBox x:Name="GridBox" HorizontalAlignment="Left" Margin="787,490,0,0" Text="Grid Size" VerticalAlignment="Top"/>
-                <Button x:Name="EnterButton" Content="Button" HorizontalAlignment="Left" Margin="888,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,0.492" Click="DrawGrid_Click"/>
+                <Button x:Name="EnterButton" Content="Enter Grid Size" HorizontalAlignment="Left" Margin="888,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,0.492" Click="DrawGrid_Click"/>
             </Grid>
         </SplitView>
 
