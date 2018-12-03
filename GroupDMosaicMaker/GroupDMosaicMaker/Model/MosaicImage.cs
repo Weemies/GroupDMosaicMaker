@@ -4,26 +4,28 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using Windows.Graphics.Imaging;
+using Windows.Storage;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace GroupDMosaicMaker.Model
 {
     public class MosaicImage
     {
-        public Uri Uri { get; set; }
+        public StorageFile File { get; set; }
 
         public BitmapImage Image { get; set; }
 
+        public byte[] Pixels { get; set; }
         public Color AverageColor { get; set; }
 
         private double dpiX;
         private double dpiY;
 
 
-        public MosaicImage(Uri uri)
+        public MosaicImage(StorageFile file)
         {
-            this.Uri = uri ?? throw new ArgumentNullException();
-            this.Image = new BitmapImage(this.Uri);
+            this.File = file ?? throw new ArgumentNullException();
+            this.Image = new BitmapImage();
             this.dpiX = 0;
             this.dpiY = 0;
             this.extractPixelData();
@@ -31,10 +33,7 @@ namespace GroupDMosaicMaker.Model
 
         private async void extractPixelData()
         {
-            var path = Path.GetFileName(this.Uri.AbsolutePath);
-            var stream = File.OpenRead(path);
-
-            using (var fileStream = stream.AsRandomAccessStream())
+            using (var fileStream = await this.File.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await BitmapDecoder.CreateAsync(fileStream);
                 var transform = new BitmapTransform
@@ -56,6 +55,7 @@ namespace GroupDMosaicMaker.Model
 
                 var sourcePixels = pixelData.DetachPixelData();
                 this.calcAverageColor(sourcePixels, decoder.PixelWidth, decoder.PixelHeight);
+                this.Pixels = sourcePixels;
             }
         }
 

@@ -130,6 +130,7 @@ namespace GroupDMosaicMaker
                     this.width = decoder.PixelWidth;
 
                     this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
+
                     using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
                     {
                         await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
@@ -337,6 +338,22 @@ namespace GroupDMosaicMaker
             int.TryParse(this.GridBox.Text.ToString(), out size);
             this.gridSize = size;
             await this.GridRefreshAsync(size);
+        }
+
+        private async void LoadPaletteClick(object sender, RoutedEventArgs e)
+        {
+            var openPicker = new FolderPicker
+            {
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary
+            };
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".png");
+            openPicker.FileTypeFilter.Add(".bmp");
+
+            var folder = await openPicker.PickSingleFolderAsync();
+            await this.viewModel.LoadImagePalette(folder);
+            this.ImagePaletteBlock.Text = "Image Palette Size: " + this.viewModel.ImagePalette.imageCollection.Count;
         }
     }
 }

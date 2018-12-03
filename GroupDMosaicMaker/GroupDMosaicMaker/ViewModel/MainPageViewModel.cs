@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Windows.Storage;
 using GroupDMosaicMaker.Annotations;
 using GroupDMosaicMaker.Model;
 using GroupDMosaicMaker.View;
@@ -12,6 +14,7 @@ namespace GroupDMosaicMaker.ViewModel
     {
         #region DataMembers
         private List<MosaicImage> _workingImages;
+        public ImagePalette ImagePalette;
         private Uri _selectedImage;
         private Uri _editedImage;
 
@@ -56,7 +59,11 @@ namespace GroupDMosaicMaker.ViewModel
         #endregion
 
         #region Constructor
-        public MainPageViewModel() { }
+
+        public MainPageViewModel()
+        {
+            this.ImagePalette = new ImagePalette();
+        }
 
 
         #endregion
@@ -66,6 +73,15 @@ namespace GroupDMosaicMaker.ViewModel
             var file = await ImageDirectoryChooserGenerator.ChooseImageFileDialog();
             this.selectedImage = new Uri(file.Path);
 
+        }
+
+        public async Task LoadImagePalette(StorageFolder folder)
+        {
+            var files = await folder.GetFilesAsync();
+            foreach (var imageFile in  files)
+            {
+                this.ImagePalette.AddImage(imageFile);
+            }
         }
 
         #region INotifyPropertyChangedImplementation

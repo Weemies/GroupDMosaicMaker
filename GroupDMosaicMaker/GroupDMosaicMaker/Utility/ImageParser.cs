@@ -27,7 +27,7 @@ namespace GroupDMosaicMaker.Utility
                     var files = await queryResult.GetFilesAsync();
                     foreach (StorageFile x in files)
                     {
-                        imageList.Add(new MosaicImage(new Uri((String.Format("ms-appdata:///local/{0}", x.Name)))));
+                        imageList.Add(new MosaicImage(x));
                     }
                 }
                 catch

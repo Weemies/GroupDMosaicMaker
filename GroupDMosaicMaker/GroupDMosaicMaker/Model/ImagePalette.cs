@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Windows.Storage;
 using MoreLinq;
 
 namespace GroupDMosaicMaker.Model
@@ -11,7 +12,7 @@ namespace GroupDMosaicMaker.Model
 
         #region Data Members
 
-        private ICollection<MosaicImage> imageCollection;
+        public ICollection<MosaicImage> imageCollection;
 
         #endregion
 
@@ -26,6 +27,12 @@ namespace GroupDMosaicMaker.Model
 
         #region Methods
 
+
+        public void AddImage(StorageFile file)
+        {
+            MosaicImage newImage = new MosaicImage(file);
+            this.imageCollection.Add(newImage);
+        }
         public MosaicImage CalculateBestImageMatch(Color targetColor)
         {
             var closestImage = this.imageCollection.MinBy(n => colorDiff(n.AverageColor, targetColor)).Min(n => n);

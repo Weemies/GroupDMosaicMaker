@@ -39,6 +39,8 @@
                 <Image x:Name="ModifiedImage" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="400" Margin="683,42,0,0"/>
                 <TextBox extensions:TextBoxRegex.ValidationType="Number" extensions:TextBoxRegex.ValidationMode="Dynamic" x:Name="GridBox" HorizontalAlignment="Left" Margin="532,490,0,0" Text="Grid Size" VerticalAlignment="Top"/>
                 <Button x:Name="EnterButton" Content="Enter Grid Size" HorizontalAlignment="Left" Margin="683,490,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.543,0.492" Click="DrawGrid_Click"/>
+                <Button x:Name="LoadImagePalette" Content="Select Image Palette" HorizontalAlignment="Left" Margin="883,490,0,0" VerticalAlignment="Top" Click="LoadPaletteClick"/>
+                <TextBlock x:Name="ImagePaletteBlock" HorizontalAlignment="Left" Margin="251,497,0,0" Text="Image Palette Size:" TextWrapping="Wrap" VerticalAlignment="Top"/>
             </Grid>
         </SplitView>
 
