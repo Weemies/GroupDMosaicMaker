@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace GroupDMosaicMaker.Model
@@ -35,6 +39,8 @@ namespace GroupDMosaicMaker.Model
             this.extractPixelData();
         }
 
+
+
         private async void extractPixelData()
         {
             using (var fileStream = await this.File.OpenAsync(FileAccessMode.Read))
@@ -62,6 +68,45 @@ namespace GroupDMosaicMaker.Model
                 this.Width = decoder.PixelWidth;
                 this.calcAverageColor(sourcePixels, decoder.PixelWidth, decoder.PixelHeight);
                 this.Pixels = sourcePixels;
+            }
+        }
+
+        public async Task<byte[]> ResizeImage(StorageFile imagefile, int reqWidth, int reqHeight)
+        {
+            //open file as stream
+            using (IRandomAccessStream fileStream = await imagefile.OpenAsync(FileAccessMode.ReadWrite))
+            {
+                var decoder = await BitmapDecoder.CreateAsync(fileStream);
+
+                var resizedStream = new InMemoryRandomAccessStream();
+
+                BitmapEncoder encoder = await BitmapEncoder.CreateForTranscodingAsync(resizedStream, decoder);
+                double widthRatio = (double) reqWidth / decoder.PixelWidth;
+                double heightRatio = (double) reqHeight / decoder.PixelHeight;
+
+                double scaleRatio = Math.Min(widthRatio, heightRatio);
+
+                if (reqWidth == 0)
+                    scaleRatio = heightRatio;
+
+                if (reqHeight == 0)
+                    scaleRatio = widthRatio;
+
+                uint aspectHeight = (uint) Math.Floor(decoder.PixelHeight * scaleRatio);
+                uint aspectWidth = (uint) Math.Floor(decoder.PixelWidth * scaleRatio);
+
+                encoder.BitmapTransform.InterpolationMode = BitmapInterpolationMode.Linear;
+
+                encoder.BitmapTransform.ScaledHeight = aspectHeight;
+                encoder.BitmapTransform.ScaledWidth = aspectWidth;
+
+                await encoder.FlushAsync();
+                resizedStream.Seek(0);
+                var outBuffer = new byte[resizedStream.Size];
+                await resizedStream.ReadAsync(outBuffer.AsBuffer(), (uint) resizedStream.Size, InputStreamOptions.None);
+
+
+                return outBuffer;
             }
         }
 

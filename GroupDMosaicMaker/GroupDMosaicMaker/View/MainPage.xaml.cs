@@ -140,6 +140,8 @@ namespace GroupDMosaicMaker
             }
         }
 
+
+
         private async void MosaicRefresh()
         {
             var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
@@ -244,11 +246,60 @@ namespace GroupDMosaicMaker
                                 decoder.PixelWidth, decoder.PixelHeight);
                            var aveColor = this.FindAverageColor(colors);
 
-                            var image = this.viewModel.ImagePalette.CalculateBestImageMatch(aveColor);
+                            var image =  await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
+
                             var palettePixels = image.Pixels;
                             var imageHeight = image.Height;
                             var imageWidth = image.Width;
                             this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
+                        }
+                        else if (i + this.gridSize >= height && j + this.gridSize >= width)
+                        {
+                            var hremainder = decoder.PixelHeight - i;
+                            var wremainder = decoder.PixelWidth - j;
+                            var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + wremainder - 1),
+                                decoder.PixelWidth, decoder.PixelHeight);
+                            var aveColor = this.FindAverageColor(colors);
+
+                            var image = await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
+
+                            var palettePixels = image.Pixels;
+                            var imageHeight = image.Height;
+                            var imageWidth = image.Width;
+                            this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + wremainder - 1),
+                                decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
+                        }
+
+                        else if (i + this.gridSize >= height)
+                        {
+                            var hremainder = decoder.PixelHeight - i;
+                            var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize),
+                                decoder.PixelWidth, decoder.PixelHeight);
+                            var aveColor = this.FindAverageColor(colors);
+
+                            var image = await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
+
+                            var palettePixels = image.Pixels;
+                            var imageHeight = image.Height;
+                            var imageWidth = image.Width;
+                            this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize),
+                                decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
+                        }
+                        else if (j + this.gridSize >= width)
+                        {
+                            var wremainder = decoder.PixelWidth - j;
+                            var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + wremainder - 1),
+                                decoder.PixelWidth, decoder.PixelHeight);
+                            var aveColor = this.FindAverageColor(colors);
+
+                            var image = await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
+
+                            var palettePixels = image.Pixels;
+                            var imageHeight = image.Height;
+                            var imageWidth = image.Width;
+                            this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + this.gridSize), (uint)(j + wremainder - 1),
+                                decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
+
                         }
 
                     }
@@ -376,13 +427,13 @@ namespace GroupDMosaicMaker
                 {
                     var imagej = j;
                     var imagei = i;
-                    if (j >= 50)
+                    if (j >= this.gridSize)
                     {
-                        imagej = j % 50;
+                        imagej = j % this.gridSize;
                     }
-                    if (i >= 50)
+                    if (i >= this.gridSize)
                     {
-                       imagei = i % 50;
+                       imagei = i % this.gridSize;
                     }
 
                     var imageColor = this.getPixelBgra8(imagePixels, imagei, imagej, desWidth, desHeight);

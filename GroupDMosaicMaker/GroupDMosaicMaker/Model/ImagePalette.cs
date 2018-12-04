@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.Storage;
 using MoreLinq;
 
@@ -34,7 +35,7 @@ namespace GroupDMosaicMaker.Model
             MosaicImage newImage = new MosaicImage(file);
             this.imageCollection.Add(newImage);
         }
-        public MosaicImage CalculateBestImageMatch(Color targetColor)
+        public async Task<MosaicImage> CalculateBestImageMatchAsync(Color targetColor, int gridSize)
         {
             var closestValue = int.MaxValue;
             MosaicImage closestImage = null;
@@ -46,6 +47,8 @@ namespace GroupDMosaicMaker.Model
                     closestImage = image;
                 }
             }
+
+            await closestImage.ResizeImage(closestImage.File, gridSize, gridSize);
             return closestImage;
         }
 
