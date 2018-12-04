@@ -11,10 +11,10 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
+using GroupDMosaicMaker.IO;
 using GroupDMosaicMaker.ViewModel;
 
-
-namespace GroupDMosaicMaker
+namespace GroupDMosaicMaker.View
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,6 +26,8 @@ namespace GroupDMosaicMaker
         private double dpiX;
         private double dpiY;
         private WriteableBitmap modifiedImage;
+        private FilePicker filePicker;
+        private FileSaver fileSaver;
         public MainPageViewModel viewModel;
 
         public Byte[] imageBytes;
@@ -43,17 +45,17 @@ namespace GroupDMosaicMaker
         public MainPage()
         {
             this.InitializeComponent();
-
+            this.viewModel = new MainPageViewModel();
+            this.DataContext = this.viewModel;
+            this.filePicker = new FilePicker();
+            this.fileSaver = new FileSaver();
+            
             this.modifiedImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
-            this.viewModel = new MainPageViewModel();
-            this.DataContext = viewModel;
             this.height = 0;
             this.width = 0;
             this.gridSize = 0;
-
-            this.InitializeComponent();
         }
 
         #endregion
@@ -66,13 +68,7 @@ namespace GroupDMosaicMaker
 
         private async void saveWritableBitmap()
         {
-            var fileSavePicker = new FileSavePicker
-            {
-                SuggestedStartLocation = PickerLocationId.PicturesLibrary,
-                SuggestedFileName = "image"
-            };
-            fileSavePicker.FileTypeChoices.Add("PNG files", new List<string> { ".png" });
-            var savefile = await fileSavePicker.PickSaveFileAsync();
+            var savefile = await this.fileSaver.saveFile();
 
             if (savefile != null)
             {
@@ -94,7 +90,7 @@ namespace GroupDMosaicMaker
 
         private async void loadButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            var sourceImageFile = await this.selectSourceImageFile();
+            var sourceImageFile = await this.filePicker.selectFile();
             this.source = sourceImageFile;
 
             if (this.source != null)
@@ -140,11 +136,9 @@ namespace GroupDMosaicMaker
             }
         }
 
-
-
         private async void MosaicRefresh()
         {
-            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
+            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(this.source);
             using (var fileStream = await this.source.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await BitmapDecoder.CreateAsync(fileStream);
@@ -174,23 +168,23 @@ namespace GroupDMosaicMaker
                 {
                     for (int j = 0; j < this.width; j += this.gridSize)
                     {
-                        if (i + this.gridSize < height && j + this.gridSize < width)
+                        if (i + this.gridSize < this.height && j + this.gridSize < this.width)
                         {
                             this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
                         }
-                        else if (i + this.gridSize >= height && j + this.gridSize >= width)
+                        else if (i + this.gridSize >= this.height && j + this.gridSize >= this.width)
                         {
                             var hremainder = decoder.PixelHeight - i;
                             var wremainder = decoder.PixelWidth - j;
                             this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder-1), (uint)(j + wremainder-1), decoder.PixelWidth, decoder.PixelHeight);
                         }
 
-                        else if (i + this.gridSize >= height)
+                        else if (i + this.gridSize >= this.height)
                         {
                             var hremainder = decoder.PixelHeight - i;
                             this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight);
                         }
-                        else if (j + this.gridSize >= width)
+                        else if (j + this.gridSize >= this.width)
                         {
                             var wremainder = decoder.PixelWidth - j;
                             this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + wremainder - 1), decoder.PixelWidth, decoder.PixelHeight);
@@ -210,7 +204,7 @@ namespace GroupDMosaicMaker
 
         private async void PictoRefresh()
         {
-            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
+            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(this.source);
             using (var fileStream = await this.source.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await BitmapDecoder.CreateAsync(fileStream);
@@ -253,7 +247,7 @@ namespace GroupDMosaicMaker
                             var imageWidth = image.Width;
                             this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
                         }
-                        else if (i + this.gridSize >= height && j + this.gridSize >= width)
+                        else if (i + this.gridSize >= this.height && j + this.gridSize >= this.width)
                         {
                             var hremainder = decoder.PixelHeight - i;
                             var wremainder = decoder.PixelWidth - j;
@@ -270,7 +264,7 @@ namespace GroupDMosaicMaker
                                 decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
                         }
 
-                        else if (i + this.gridSize >= height)
+                        else if (i + this.gridSize >= this.height)
                         {
                             var hremainder = decoder.PixelHeight - i;
                             var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize),
@@ -285,7 +279,7 @@ namespace GroupDMosaicMaker
                             this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + this.gridSize),
                                 decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
                         }
-                        else if (j + this.gridSize >= width)
+                        else if (j + this.gridSize >= this.width)
                         {
                             var wremainder = decoder.PixelWidth - j;
                             var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + wremainder - 1),
@@ -378,23 +372,7 @@ namespace GroupDMosaicMaker
             }
         }
 
-        private async Task<StorageFile> selectSourceImageFile()
-        {
-            var openPicker = new FileOpenPicker
-            {
-                ViewMode = PickerViewMode.Thumbnail,
-                SuggestedStartLocation = PickerLocationId.PicturesLibrary
-            };
-            openPicker.FileTypeFilter.Add(".jpg");
-            openPicker.FileTypeFilter.Add(".png");
-            openPicker.FileTypeFilter.Add(".bmp");
-
-            var file = await openPicker.PickSingleFileAsync();
-
-            return file;
-        }
-
-        private async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
+       private async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
         {
             IRandomAccessStream inputstream = await imageFile.OpenReadAsync();
             var newImage = new BitmapImage();

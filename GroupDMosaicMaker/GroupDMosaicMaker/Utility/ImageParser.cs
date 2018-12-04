@@ -22,7 +22,7 @@ namespace GroupDMosaicMaker.Utility
                     List<string> fileTypeFilter = new List<string>();
                     fileTypeFilter.Add(".jpg");
                     fileTypeFilter.Add(".png");
-                    QueryOptions queryOptions = new QueryOptions(Windows.Storage.Search.CommonFileQuery.OrderByName, fileTypeFilter);
+                    QueryOptions queryOptions = new QueryOptions(CommonFileQuery.OrderByName, fileTypeFilter);
                     StorageFileQueryResult queryResult = folder.CreateFileQueryWithOptions(queryOptions);
                     var files = await queryResult.GetFilesAsync();
                     foreach (StorageFile x in files)
@@ -35,7 +35,6 @@ namespace GroupDMosaicMaker.Utility
                     Console.WriteLine("This is not an image file");
                 }
             }
-
             return imageList;
         }
     }

@@ -39,8 +39,6 @@ namespace GroupDMosaicMaker.Model
             this.extractPixelData();
         }
 
-
-
         private async void extractPixelData()
         {
             using (var fileStream = await this.File.OpenAsync(FileAccessMode.Read))
