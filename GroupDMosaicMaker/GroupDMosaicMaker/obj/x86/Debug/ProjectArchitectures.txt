@@ -1,1 +1,1 @@
-C:\Users\onejo\source\repos\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker.csproj;x86
+C:\Users\csuser\Source\Repos\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker\GroupDMosaicMaker.csproj;x86

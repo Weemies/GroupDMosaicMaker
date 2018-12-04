@@ -102,6 +102,6 @@
       <RootProperty Name="Label" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="GroupDMosaicMaker.MainPage" />
+    <RootType FullName="GroupDMosaicMaker.View.MainPage" />
   </Roots.RootTypes>
 </Roots>

@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="IO\FilePicker.cs" />
     <Compile Include="IO\FileSaver.cs" />
+    <Compile Include="IO\FolderSelector.cs" />
     <Compile Include="Model\ImagePalette.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Utility\ImageParser.cs" />

@@ -28,6 +28,7 @@ namespace GroupDMosaicMaker.View
         private WriteableBitmap modifiedImage;
         private FilePicker filePicker;
         private FileSaver fileSaver;
+        private FolderSelector folderPicker;
         public MainPageViewModel viewModel;
 
         public Byte[] imageBytes;
@@ -49,7 +50,7 @@ namespace GroupDMosaicMaker.View
             this.DataContext = this.viewModel;
             this.filePicker = new FilePicker();
             this.fileSaver = new FileSaver();
-            
+
             this.modifiedImage = null;
             this.dpiX = 0;
             this.dpiY = 0;
@@ -176,7 +177,7 @@ namespace GroupDMosaicMaker.View
                         {
                             var hremainder = decoder.PixelHeight - i;
                             var wremainder = decoder.PixelWidth - j;
-                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder-1), (uint)(j + wremainder-1), decoder.PixelWidth, decoder.PixelHeight);
+                            this.giveImageAverageColor(sourcePixels, i, j, (uint)(i + hremainder - 1), (uint)(j + wremainder - 1), decoder.PixelWidth, decoder.PixelHeight);
                         }
 
                         else if (i + this.gridSize >= this.height)
@@ -236,11 +237,11 @@ namespace GroupDMosaicMaker.View
                     {
                         if (i + this.gridSize < this.height && j + this.gridSize < this.width)
                         {
-                           var colors = this.LoadColors(sourcePixels, i, j, (uint) (i + this.gridSize), (uint) (j + this.gridSize),
-                                decoder.PixelWidth, decoder.PixelHeight);
-                           var aveColor = this.FindAverageColor(colors);
+                            var colors = this.LoadColors(sourcePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize),
+                                 decoder.PixelWidth, decoder.PixelHeight);
+                            var aveColor = this.FindAverageColor(colors);
 
-                            var image =  await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
+                            var image = await this.viewModel.ImagePalette.CalculateBestImageMatchAsync(aveColor, this.gridSize);
 
                             var palettePixels = image.Pixels;
                             var imageHeight = image.Height;
@@ -372,7 +373,7 @@ namespace GroupDMosaicMaker.View
             }
         }
 
-       private async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
+        private async Task<BitmapImage> MakeACopyOfTheFileToWorkOn(StorageFile imageFile)
         {
             IRandomAccessStream inputstream = await imageFile.OpenReadAsync();
             var newImage = new BitmapImage();
@@ -411,7 +412,7 @@ namespace GroupDMosaicMaker.View
                     }
                     if (i >= this.gridSize)
                     {
-                       imagei = i % this.gridSize;
+                        imagei = i % this.gridSize;
                     }
 
                     var imageColor = this.getPixelBgra8(imagePixels, imagei, imagej, desWidth, desHeight);
@@ -435,16 +436,7 @@ namespace GroupDMosaicMaker.View
 
         private async void LoadPaletteClick(object sender, RoutedEventArgs e)
         {
-            var openPicker = new FolderPicker
-            {
-                ViewMode = PickerViewMode.Thumbnail,
-                SuggestedStartLocation = PickerLocationId.PicturesLibrary
-            };
-            openPicker.FileTypeFilter.Add(".jpg");
-            openPicker.FileTypeFilter.Add(".png");
-            openPicker.FileTypeFilter.Add(".bmp");
-
-            var folder = await openPicker.PickSingleFolderAsync();
+            var folder = await this.folderPicker.LoadFolder();
             await this.viewModel.LoadImagePalette(folder);
             this.ImagePaletteBlock.Text = "Image Palette Size: " + this.viewModel.ImagePalette.imageCollection.Count;
         }
