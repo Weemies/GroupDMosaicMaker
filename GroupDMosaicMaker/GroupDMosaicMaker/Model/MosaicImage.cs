@@ -15,6 +15,10 @@ namespace GroupDMosaicMaker.Model
 
         public BitmapImage Image { get; set; }
 
+        public uint Height { get; set; }
+
+        public uint Width { get; set; }
+
         public byte[] Pixels { get; set; }
         public Color AverageColor { get; set; }
 
@@ -54,6 +58,8 @@ namespace GroupDMosaicMaker.Model
                 );
 
                 var sourcePixels = pixelData.DetachPixelData();
+                this.Height = decoder.PixelHeight;
+                this.Width = decoder.PixelWidth;
                 this.calcAverageColor(sourcePixels, decoder.PixelWidth, decoder.PixelHeight);
                 this.Pixels = sourcePixels;
             }
@@ -92,6 +98,14 @@ namespace GroupDMosaicMaker.Model
             var g = pixels[offset + 1];
             var b = pixels[offset + 0];
             return Color.FromArgb(0, r, g, b);
+        }
+
+
+        public int colorDiff(Color c1, Color c2)
+        {
+            return (int)Math.Sqrt((c1.R - c2.R) * (c1.R - c2.R)
+                                  + (c1.G - c2.G) * (c1.G - c2.G)
+                                  + (c1.B - c2.B) * (c1.B - c2.B));
         }
     }
 }

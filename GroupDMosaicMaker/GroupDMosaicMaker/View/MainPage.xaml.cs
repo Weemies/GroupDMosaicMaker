@@ -206,26 +206,67 @@ namespace GroupDMosaicMaker
             }
         }
 
-        private void giveImageAverageColor(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth, uint fullWidth, uint fullHeight)
+        private async void PictoRefresh()
         {
-            List<Color> pixels = new List<Color>();
-            for (var i = xstart; i < imageHeight; i++)
+            var copyBitmapImage = await this.MakeACopyOfTheFileToWorkOn(source);
+            using (var fileStream = await this.source.OpenAsync(FileAccessMode.Read))
             {
-                for (var j = ystart; j < imageWidth; j++)
+                var decoder = await BitmapDecoder.CreateAsync(fileStream);
+                var transform = new BitmapTransform
                 {
-                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, fullWidth, fullHeight);
-                    pixels.Add(pixelColor);
+                    ScaledWidth = Convert.ToUInt32(copyBitmapImage.PixelWidth),
+                    ScaledHeight = Convert.ToUInt32(copyBitmapImage.PixelHeight)
+                };
+
+                this.dpiX = decoder.DpiX;
+                this.dpiY = decoder.DpiY;
+
+                var pixelData = await decoder.GetPixelDataAsync(
+                    BitmapPixelFormat.Bgra8,
+                    BitmapAlphaMode.Straight,
+                    transform,
+                    ExifOrientationMode.IgnoreExifOrientation,
+                    ColorManagementMode.DoNotColorManage
+                );
+
+                var sourcePixels = pixelData.DetachPixelData();
+                this.imageBytes = sourcePixels;
+                this.height = decoder.PixelHeight;
+                this.width = decoder.PixelWidth;
+
+                for (int i = 0; i < this.height; i += this.gridSize)
+                {
+                    for (int j = 0; j < this.width; j += this.gridSize)
+                    {
+                        if (i + this.gridSize < this.height && j + this.gridSize < this.width)
+                        {
+                           var colors = this.LoadColors(sourcePixels, i, j, (uint) (i + this.gridSize), (uint) (j + this.gridSize),
+                                decoder.PixelWidth, decoder.PixelHeight);
+                           var aveColor = this.FindAverageColor(colors);
+
+                            var image = this.viewModel.ImagePalette.CalculateBestImageMatch(aveColor);
+                            var palettePixels = image.Pixels;
+                            var imageHeight = image.Height;
+                            var imageWidth = image.Width;
+                            this.ConvertToImageColors(sourcePixels, palettePixels, i, j, (uint)(i + this.gridSize), (uint)(j + this.gridSize), decoder.PixelWidth, decoder.PixelHeight, imageWidth, imageHeight);
+                        }
+
+                    }
+                }
+
+                this.modifiedImage = new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
+                using (var writeStream = this.modifiedImage.PixelBuffer.AsStream())
+                {
+                    await writeStream.WriteAsync(sourcePixels, 0, sourcePixels.Length);
+                    this.ModifiedImage.Source = this.modifiedImage;
                 }
             }
+        }
 
-            var reds = pixels.Select(x => x.R).ToList();
-            var averageR = reds.Average(x => x);
-            var green = pixels.Select(x => x.G).ToList();
-            var averageG = green.Average(x => x);
-            var blue = pixels.Select(x => x.B).ToList();
-            var averageB = blue.Average(x => x);
-            var aveColor = Color.FromArgb(0, Convert.ToByte(averageR), Convert.ToByte(averageG), Convert.ToByte(averageB));
-
+        private void giveImageAverageColor(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth, uint fullWidth, uint fullHeight)
+        {
+            var pixels = this.LoadColors(sourcePixels, xstart, ystart, imageHeight, imageWidth, fullWidth, fullHeight);
+            var aveColor = this.FindAverageColor(pixels);
             for (var i = xstart; i < imageHeight; i++)
             {
                 for (var j = ystart; j < imageWidth; j++)
@@ -282,7 +323,7 @@ namespace GroupDMosaicMaker
                     this.SourceImage.Source = this.modifiedImage;
                 }
 
-                this.MosaicRefresh();
+                this.PictoRefresh();
             }
         }
 
@@ -327,6 +368,29 @@ namespace GroupDMosaicMaker
             pixels[offset + 0] = color.B;
         }
 
+        public void ConvertToImageColors(byte[] pixels, byte[] imagePixels, int xstart, int ystart, uint imageHeight, uint imageWidth, uint fullWidth, uint fullHeight, uint desWidth, uint desHeight)
+        {
+            for (var i = xstart; i < imageHeight; i++)
+            {
+                for (var j = ystart; j < imageWidth; j++)
+                {
+                    var imagej = j;
+                    var imagei = i;
+                    if (j >= 50)
+                    {
+                        imagej = j % 50;
+                    }
+                    if (i >= 50)
+                    {
+                       imagei = i % 50;
+                    }
+
+                    var imageColor = this.getPixelBgra8(imagePixels, imagei, imagej, desWidth, desHeight);
+                    this.setPixelBgra8(pixels, i, j, imageColor, fullWidth, fullHeight);
+                }
+            }
+        }
+
         private async void DrawGrid_Click(object sender, RoutedEventArgs e)
         {
             if (this.source == null)
@@ -354,6 +418,33 @@ namespace GroupDMosaicMaker
             var folder = await openPicker.PickSingleFolderAsync();
             await this.viewModel.LoadImagePalette(folder);
             this.ImagePaletteBlock.Text = "Image Palette Size: " + this.viewModel.ImagePalette.imageCollection.Count;
+        }
+
+        private List<Color> LoadColors(byte[] sourcePixels, int xstart, int ystart, uint imageHeight, uint imageWidth, uint fullWidth, uint fullHeight)
+        {
+            List<Color> pixels = new List<Color>();
+            for (var i = xstart; i < imageHeight; i++)
+            {
+                for (var j = ystart; j < imageWidth; j++)
+                {
+                    var pixelColor = this.getPixelBgra8(sourcePixels, i, j, fullWidth, fullHeight);
+                    pixels.Add(pixelColor);
+                }
+            }
+
+            return pixels;
+        }
+
+        private Color FindAverageColor(List<Color> pixels)
+        {
+            var reds = pixels.Select(x => x.R).ToList();
+            var averageR = reds.Average(x => x);
+            var green = pixels.Select(x => x.G).ToList();
+            var averageG = green.Average(x => x);
+            var blue = pixels.Select(x => x.B).ToList();
+            var averageB = blue.Average(x => x);
+            var aveColor = Color.FromArgb(0, Convert.ToByte(averageR), Convert.ToByte(averageG), Convert.ToByte(averageB));
+            return aveColor;
         }
     }
 }
